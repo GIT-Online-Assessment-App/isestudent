@@ -1,0 +1,77 @@
+
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-25 p-b-50">
+			<form name="form" class="login100-form validate-form needs-validation" ng-submit="form.$valid && lg.login()" novalidate>
+				<img src="images/gitbanner.png" class="img-thumbnail" alt="git-banner">
+				<span class="login100-form-title p-b-10 fs-18 m-t-20">
+					Student Login
+				</span>
+				
+				<div class="wrap-input100 validate-input" ng-class="{ 'has-error': form.$submitted && form.email.$invalid }" data-validate = "Valid email is required: ex@abc.xyz">
+					
+					<input type="email" name="email" class="input100" placeholder="Email"  autocomplete="username" ng-model="lg.email" required />
+					<span ng-messages="form.$submitted && form.email.$error" style="font-size : x-small;padding-left: 40%;" class="focus-input100-2 text-danger focus-input100-1">
+						<span ng-message="required"><b>Email is required!</b></span>
+						<span ng-show = "form.$submitted && form.email.$error.email"><b>Invalid email address.</b></span>
+					</span>
+					
+					
+				</div>
+				
+				
+				<div class="wrap-input100 rs1 validate-input" ng-class="{ 'has-error': form.$submitted && form.password.$invalid }" data-validate="Password is required">
+					
+					<input type="password" name="password" class="input100" placeholder="Password" autocomplete="current-password" ng-model="lg.password" required />
+					<span ng-messages="form.$submitted && form.password.$error"  class="focus-input100-1">
+						<span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Password is required</b></span>
+					</span>
+					
+					
+				</div>
+				
+				<div class="container-login100-form-btn m-t-20">
+					
+					<button ng-disabled="lg.loading" class="login100-form-btn" >Sign in
+						<img ng-if="lg.loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAA
+						MLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWphe
+						GxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUm
+						cG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu
+						7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAE
+						AAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfv
+						wQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DY
+						lJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgX
+						GJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQO
+						RfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAA
+						AAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLW
+						zpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjC
+						YRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+					</button>
+				</div>
+				
+				<div class="text-center p-t-45 p-b-4">
+					<span class="txt1">
+						Forgot
+					</span>
+					
+					<a href="#" class="txt2 hov1" onclick="resetPassword()">
+						Username / Password?
+					</a>
+					
+				</div>
+				
+				<div class="text-center">
+					<span class="txt1">
+						Create an account?
+					</span>
+					
+					<a href="#!register1" class="txt2 hov1">
+						Sign up
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+

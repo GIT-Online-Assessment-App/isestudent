@@ -1,0 +1,154 @@
+{
+    "status": "success",
+    "response_list": [
+        {
+            "subject": "DSA",
+            "ia": "First",
+            "semester": "3",
+            "questions": [
+                {
+                    "qno": "1",
+                    "question": "what is the question number 1?",
+                    "options": [
+                        "num 1",
+                        "num 2",
+                        "num 3",
+                        "num 4"
+                    ],
+                    "answer": "num 2"
+                },
+                {
+                    "qno": "2",
+                    "question": "What is the question number 2?",
+                    "options": [
+                        "sub 1",
+                        "sub 2",
+                        "sub 3",
+                        "sub 4"
+                    ],
+                    "answer": "sub 3"
+                },
+                {
+                    "qno": "3",
+                    "question": "what is question number 3?",
+                    "options": [
+                        "asd 1",
+                        "asd 2",
+                        "asd 3",
+                        "asd 4"
+                    ],
+                    "answer": "asd 4"
+                }
+            ],
+            "student_response": [
+                {
+                    "qno": 1,
+                    "student_answer": "num 2",
+                    "status": "correct",
+                    "actual_answer": "num 2"
+                },
+                {
+                    "qno": 2,
+                    "student_answer": "sub 3",
+                    "status": "correct",
+                    "actual_answer": "sub 3"
+                },
+                {
+                    "qno": 3,
+                    "student_answer": "asd 2",
+                    "status": "wrong",
+                    "actual_answer": "asd 4"
+                }
+            ],
+            "score": 2
+        },
+        {
+            "subject": "OS",
+            "ia": "First",
+            "semester": "4",
+            "questions": [
+                {
+                    "qno": "1",
+                    "question": "abc abc abc abc",
+                    "options": [
+                        "qwe",
+                        "poi",
+                        "tyu",
+                        "nmb"
+                    ],
+                    "answer": "poi"
+                },
+                {
+                    "qno": "2",
+                    "question": "iwouydoisa fiouaso;i fsajd",
+                    "options": [
+                        "dsjdks",
+                        "fdjsl;kj",
+                        "fkdjl",
+                        "fdkll"
+                    ],
+                    "answer": "fkdjl"
+                }
+            ],
+            "student_response": [
+                {
+                    "qno": 1,
+                    "student_answer": "poi",
+                    "status": "correct",
+                    "actual_answer": "poi"
+                },
+                {
+                    "qno": 2,
+                    "student_answer": "fdkll",
+                    "status": "wrong",
+                    "actual_answer": "fkdjl"
+                }
+            ],
+            "score": 1
+        },
+        {
+            "subject": "MPMC",
+            "ia": "First",
+            "semester": "3",
+            "questions": [
+                {
+                    "qno": "1",
+                    "question": "What is mpmc?",
+                    "options": [
+                        "subject",
+                        "course",
+                        "degree",
+                        "none of the above"
+                    ],
+                    "answer": "subject"
+                },
+                {
+                    "qno": "2",
+                    "question": "where is motherboard situated in?",
+                    "options": [
+                        "CPU",
+                        "UPS",
+                        "Mouse",
+                        "Switch board"
+                    ],
+                    "answer": "CPU"
+                }
+            ],
+            "student_response": [
+                {
+                    "qno": 1,
+                    "student_answer": "subject",
+                    "status": "correct",
+                    "actual_answer": "subject"
+                },
+                {
+                    "qno": 2,
+                    "student_answer": "UPS",
+                    "status": "wrong",
+                    "actual_answer": "CPU"
+                }
+            ],
+            "score": 1
+        }
+    ]
+}

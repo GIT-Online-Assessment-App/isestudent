@@ -1,0 +1,71 @@
+<div class="limiter">
+    <nav class="navbar fixed-top navbar-light" style="background-color:#706f6d;">
+        <span class="navbar-brand">{{detail.email}}</span>
+        <button class="btn btn-outline-dark" type="button" ng-click="detail.logout()">Logout</button>
+    </nav>
+    <div class="container-dashboard100 m-t-10">
+        
+        <div class="wrap-dashboard100 p-l-55 p-r-55 p-t-65 p-b-50 m-b-10 readonly"  >
+                <form name="form" ng-submit= "form.$valid && detail.submit()" novalidate>
+                    <fieldset>
+                        <div class="row">
+                        <div class="col" ng-class="{ 'has-error': form.$submitted && form.usn.$invalid }">
+                                <input type="text" name="usn" class="form-control m-t-15"id="usn" ng-model="detail.usn" ng-pattern="detail.usnRegEx" placeholder="Enter USN" required>
+                                <span ng-messages="form.$submitted && form.usn.$error"  class="focus-input100-1">
+                                    <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please enter your USN!</b></span>                                                                        
+                                </span> 
+                                <span  ng-show="form.usn.$error.pattern"style="font-size : x-small;padding-left: 40%;"  class="text-danger focus-input100-1">                             
+                                    <b> Invalid USN format!!</b>
+                                </span>                               
+                        </div>
+                        
+                            
+                        <div class="col" ng-class="{ 'has-error': form.$submitted && form.semester.$invalid }">
+                            <select name="semester" class="form-control m-t-15 custom-select" ng-model="detail.semester" required> 
+                                    <option value="">Semester</option> 
+                                    <option ng-repeat="sem in detail.semesters"  value="{{sem}}"  >{{sem}}</option> 
+                            </select>
+                            <span ng-messages="form.$submitted && form.semester.$error"  class="focus-input100-1">
+                                <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please select your Semester!</b></span>
+                            </span>
+                        </div>
+                         
+                          
+                        </div>
+                        <div class="row m-t-10">
+                                <div class="col" ng-class="{ 'has-error': form.$submitted && form.branch.$invalid }">
+                                        <select name="branch" class="form-control m-t-15 custom-select" ng-model="detail.branch" required> 
+                                                <option value="">Branch</option> 
+                                                <option ng-repeat="branch in detail.branches"  value="{{branch}}"  >{{branch}}</option> 
+                                        </select>
+                                        <span ng-messages="form.$submitted && form.branch.$error"  class="focus-input100-1">
+                                            <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please choose your Branch!</b></span>
+                                        </span>
+                                </div>
+                                <div class="col" ng-class="{ 'has-error': form.$submitted && form.phone.$invalid }" >
+                                        <input type="number" name="phone" class="form-control m-t-15" ng-model="detail.phone" placeholder="Contact number" required>
+                                        <span ng-messages="form.$submitted && form.phone.$error"  class="focus-input100-1">
+                                            <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please enter your Phone no.!</b></span>
+                                        </span>                                        
+                                </div>
+
+                                                             
+                         </div>
+                         <div class="row m-t-20  p-t-5 p-r-5 p-b-5 p-l-5">
+                             <div class="col"></div>
+                             <div class="col">
+                                 <button type="submit"  class="btn btn-primary btn-sm b-w-100p">Submit</button>
+                             </div>
+                             <div class="col"></div>
+                         </div>
+                    </fieldset>
+                </form>
+        </div>
+    
+
+
+    </div>
+    
+            
+    
+</div>

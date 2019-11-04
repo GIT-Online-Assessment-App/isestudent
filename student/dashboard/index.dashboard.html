@@ -1,0 +1,125 @@
+<div class="limiter">
+    <nav class="navbar fixed-top navbar-light" style="background-color: #706f6d">
+        <span class="navbar-brand">{{dsh.uname}}</span>      
+        <div class="white-fonts" >
+            <span class="pointer"  ng-click="dsh.goToHome()">Home</span>|
+            <span class="context-menu">Exam History</span>      
+            
+        </div>
+        
+        <button class="btn btn-outline-dark" type="button" ng-click="dsh.logout()">Logout</button>
+    </nav>
+    <div class="container-dashboard100 m-t-10">
+        
+        <div class="wrap-dashboard100 p-l-55 p-r-55 p-t-65 p-b-50 m-b-10"  >
+            
+            <div ng-show="true">
+                
+                
+                <div class="table-responsive">
+                    <table class="table-hover table table-bordered">
+                        <tr>
+                            <th>#</th>
+                            <th>Test Series</th>
+                            <th>Topic</th>
+                            
+                            <th>Semester</th>
+                            <th>Score</th>
+                        </tr>
+                        <tr ng-repeat="q_paper in dsh.response_list | orderBy : q_paper.semester" data-toggle="modal" data-target="#myModal" ng-click="dsh.dispQuestions(q_paper)">
+                            <td></td>
+                            <td>{{q_paper.ia}} </td>
+                            <td>{{q_paper.subject}}</td>                            
+                            <td>{{q_paper.semester}} </td>
+                            <td>{{q_paper.score}} </td>
+                        </tr>
+                    </table>
+                    
+                    
+                    <!--modal begin-->                            
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h6 class="modal-title"><b>Name: {{dsh.uname}}</b></h6>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                
+                                <!-- Modal body -->
+                                <div class="modal-body wrap-dashboard100">
+                                    <div class="table-responsive ">
+                                        <table class="table wrap-response-header100">
+                                            <tr>
+                                                <td>Username: {{dsh.uname}} </td>
+                                                <td>Topic: {{dsh.subject}}</td>
+                                                <td>Semester: {{dsh.semester}} </td>
+                                                <td>Test Series: {{dsh.ia}}</td>
+                                                <td>Score: {{dsh.score}} </td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <div class="wrap-responses100 m-t-5 p-l-10 p-t-10 p-r-10 p-b-10" ng-repeat="question in dsh.responses.questions" ng-style='dsh.responses.student_response[$index].status=="correct" ? dsh.correct :  dsh.responses.student_response[$index].status=="wrong" ? dsh.wrong : dsh.na'>
+                                            <div >
+                                                <span>{{question.qno}}. </span>
+                                                <span><strong>{{question.question}} </strong></span>
+                                                <div class="row m-t-15 m-l-10" >
+                                                    <div class="col">a. {{question.options[0]}} 
+                                                        
+                                                    </div>
+                                                    <div class="col">b. {{question.options[1]}}
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row m-t-5 m-l-10" >
+                                                    <div class="col">c. {{question.options[2]}}
+                                                        
+                                                        
+                                                    </div>
+                                                    <div class="col">d. {{question.options[3]}}
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row m-l-10 m-t-15">
+                                                    <div class="col-sm-3">Actual answer :{{dsh.responses.student_response[$index].actual_answer}}
+                                                        
+                                                    </div>
+                                                    <div class="col-sm-3">Marked Ans :{{dsh.responses.student_response[$index].student_answer}}
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>                                  
+                    <!--modal end-->                    
+                </div>
+            </div>
+            
+            
+            
+            
+            
+        </div>  
+        
+        
+    </div>
+    
+    
+    
+</div>

@@ -1,0 +1,146 @@
+<div class="limiter">
+    <nav class="navbar fixed-top navbar-light" style="background-color: #706f6d">
+        <span class="navbar-brand">{{exam.uname}}</span>
+        <span class="white-fonts" ><strong id="clockdiv"></strong></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <a href="#!dashboard" ng-hide="!exam.logout_flag" class="navbar-brand">Exam History</a>
+        <button class="btn btn-outline-dark" type="button" ng-disabled="!exam.logout_flag" ng-click="exam.logout()">Logout</button>
+    </nav>
+    <div class="container-dashboard100 m-t-10">
+        
+        <div class="wrap-dashboard100 p-l-55 p-r-55 p-t-65 p-b-50 m-b-10"  >
+            <form name="form" ng-submit= "form.$valid && exam.proceed()" novalidate>
+                <fieldset  ng-disabled = "exam.success">
+                    <div class="row">
+                        <div class="col-sm-6" ng-class="{ 'has-error': form.$submitted && form.examkey.$invalid }" >
+                            <input type="text" name="examkey" class="form-control m-t-15" ng-model="exam.examkey" placeholder="Enter Test Key" required>
+                            <span ng-messages="form.$submitted && form.examkey.$error"  class="focus-input100-1">
+                                <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please enter exam Key!</b></span>
+                            </span>                                
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="submit" ng-disabled = "exam.loading" class="btn btn-primary m-t-15 btn-sm b-w-100p">Start Test
+                                <img ng-if="exam.loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAA
+                                MLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWphe
+                                GxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUm
+                                cG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu
+                                7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAE
+                                AAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfv
+                                wQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DY
+                                lJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgX
+                                GJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQO
+                                RfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAA
+                                AAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLW
+                                zpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjC
+                                YRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                            </button>
+                        </div>
+                    </div>                        
+                    
+                </fieldset>
+            </form>
+        </div>
+        
+        
+        <div class="wrap-questions100 p-l-55 p-r-55 p-t-20 p-b-50 readonly" ng-show="exam.success">
+            
+            
+            
+            <div>
+                <form name="form1" class="login100-form validate-form" ng-submit= "form1.$valid && exam.submit()" novalidate>
+                    <span class="question100-form-title m-t-10">QUIZ</span>
+                    <div class="errMsg m-t-10">
+                        <div><strong>Note:</strong></div>
+                        <div class="row">                            
+                            <div class="col">
+                                <strong>
+                                    <p class="errMsgContent">Quiz will be auto submitted on Tab Change</p>
+                                    <p class="errMsgContent">Marks alloted for each right answer: <b> {{exam.positive_marks}} </b> </p>
+                                    <p class="errMsgContent2">Negative marks for each wrong answer: <b> {{exam.negative_marks}}</b></p>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <span><b>{{exam.test_code}}</b></span>
+                    <div class="row question m-t-10">
+                        <div class="col pagination-div">
+                            
+                            <!--START PAGER CONTROL-->
+                            <!-- pager -->
+                            <ul ng-if="exam.pager.pages.length" class="pagination col-sm-6">
+                                <li style="min-width:50px;"></li>
+                                
+                                <li ng-repeat="page in exam.pager.pages"  ng-class="{active:exam.pager.currentPage === page}">
+                                    <a  class='questionStatus+{{page}}' ng-style='exam.navigationDesign[page]'   ng-click="exam.setPage(page)">{{page}} <br> </a>
+                                </li>            
+                                <!-- ng-style='exam.flagsArray[page] ? exam.redBorder : exam.noBorder' -->
+                            </ul>       
+                            <!--END PAGER CONTROL-->
+                        </div>
+                        
+                    </div>
+                    <fieldset class="question m-t-10"  ng-repeat="question in exam.items" >
+                        
+                        <div>
+                            <pre><span>{{ exam.pager.currentPage }}. </span><strong> {{question.question}}<br></strong></pre> <hr>
+                        </div>
+                        <div ng-repeat="option in question.options">
+                            <div class="radio">                                
+                                <label><input ng-model="exam.answers[question.qno]" ng-click="exam.flagOptions(exam.answers[question.qno],exam.pager.currentPage)"  type="radio" name="{{question.qno}}" ng-value='"{{option}}"' > {{option}}</label>
+                                <!--  -->
+                                <!-- ng-click="exam.navigationDesign[exam.pager.currentPage]['text-decoration'] = exam.answers[question.qno] : 'underline' ? 'none'" -->
+                            </div>
+                        </div>
+                        <div class="row m-t-15">
+                            <div class="col"><button type="button" class="btn btn-light" ng-click="exam.resetAnswer(question.qno, exam.pager.currentPage)"><!-- exam.answers[question.qno]=null; -->Reset Answer</button></div>
+                            <div class="col"><button type="button" class="btn btn-light" ng-click="exam.flagQuestion(exam.pager.currentPage)">Revisit</button></div>
+                            <div class="col"></div>
+                        </div>
+                        
+                    </fieldset>
+                    <ul class="row">
+                        <li class="col btn btn-link" ng-class="{disabled:exam.pager.currentPage === 1}">
+                            <a ng-click="exam.setPage(1)"> First</a>
+                        </li>
+                        <li class="col btn btn-link" ng-class="{disabled:exam.pager.currentPage === 1}">
+                            <a ng-click="exam.setPage(exam.pager.currentPage - 1)"><< Previous</a>
+                        </li>
+                        <li class="col btn btn-link" ng-class="{disabled:exam.pager.currentPage === exam.pager.totalPages}">
+                            <a ng-click="exam.setPage(exam.pager.currentPage + 1)">Next >></a>
+                        </li>
+                        <li class="col btn btn-link" ng-class="{disabled:exam.pager.currentPage === exam.pager.totalPages}">
+                            <a ng-click="exam.setPage(exam.pager.totalPages)">Last</a>
+                        </li>
+                    </ul>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <div class="row m-t-20  p-t-5 p-r-5 p-b-5 p-l-5">
+                        
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary btn-sm b-w-100p"> <strong> Submit Test</strong></button>
+                        </div>
+                    </div>
+                    
+                </form>    
+                
+                
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    
+    
+</div>
