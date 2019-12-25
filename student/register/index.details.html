@@ -9,7 +9,7 @@
                 <form name="form" ng-submit= "form.$valid && detail.submit()" novalidate>
                     <fieldset>
                         <div class="row">
-                        <div class="col" ng-class="{ 'has-error': form.$submitted && form.usn.$invalid }">
+                        <div class="col-sm-6" ng-class="{ 'has-error': form.$submitted && form.usn.$invalid }">
                                 <input type="text" name="usn" class="form-control m-t-15"id="usn" ng-model="detail.usn" ng-pattern="detail.usnRegEx" placeholder="Enter USN" required>
                                 <span ng-messages="form.$submitted && form.usn.$error"  class="focus-input100-1">
                                     <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please enter your USN!</b></span>                                                                        
@@ -20,7 +20,7 @@
                         </div>
                         
                             
-                        <div class="col" ng-class="{ 'has-error': form.$submitted && form.semester.$invalid }">
+                        <div class="col-sm-6" ng-class="{ 'has-error': form.$submitted && form.semester.$invalid }">
                             <select name="semester" class="form-control m-t-15 custom-select" ng-model="detail.semester" required> 
                                     <option value="">Semester</option> 
                                     <option ng-repeat="sem in detail.semesters"  value="{{sem}}"  >{{sem}}</option> 
@@ -33,7 +33,7 @@
                           
                         </div>
                         <div class="row m-t-10">
-                                <div class="col" ng-class="{ 'has-error': form.$submitted && form.branch.$invalid }">
+                                <div class="col-sm-6" ng-class="{ 'has-error': form.$submitted && form.branch.$invalid }">
                                         <select name="branch" class="form-control m-t-15 custom-select" ng-model="detail.branch" required> 
                                                 <option value="">Branch</option> 
                                                 <option ng-repeat="branch in detail.branches"  value="{{branch}}"  >{{branch}}</option> 
@@ -42,7 +42,7 @@
                                             <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please choose your Branch!</b></span>
                                         </span>
                                 </div>
-                                <div class="col" ng-class="{ 'has-error': form.$submitted && form.phone.$invalid }" >
+                                <div class="col-sm-6" ng-class="{ 'has-error': form.$submitted && form.phone.$invalid }" >
                                         <input type="number" name="phone" class="form-control m-t-15" ng-model="detail.phone" placeholder="Contact number" required>
                                         <span ng-messages="form.$submitted && form.phone.$error"  class="focus-input100-1">
                                             <span ng-message="required" class="focus-input100-2 text-danger"style="font-size : x-small;padding-left: 40%;"><b>Please enter your Phone no.!</b></span>

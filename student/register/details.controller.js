@@ -27,10 +27,10 @@ function Controller($localStorage,AuthenticationService,RegistrationService, $ht
         RegistrationService.updateInfo(detail.email, detail.usn, detail.phone, detail.branch, detail.semester, function(result){
 
           if(result.status){
-            alert('dash:'+result.email_id);
+            alert('Successfully registered as '+result.email_id);
             window.location.href = "#!/";
           }else{
-            alert('error:sdfdg '+result.error);
+            alert('Try again! ERROR: '+result.error);
           } 
   
         });

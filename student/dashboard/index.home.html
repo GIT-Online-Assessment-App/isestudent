@@ -1,6 +1,6 @@
 <div class="limiter">
     <nav class="navbar fixed-top navbar-light" style="background-color: #706f6d">
-        <span class="navbar-brand">{{exam.uname}}</span>
+        <a href="" class="navbar-brand">{{exam.uname}}</a>
         <span class="white-fonts" ><strong id="clockdiv"></strong></span>
         <span></span>
         <span></span>
@@ -89,7 +89,7 @@
                         </div>
                         <div ng-repeat="option in question.options">
                             <div class="radio">                                
-                                <label><input ng-model="exam.answers[question.qno]" ng-click="exam.flagOptions(exam.answers[question.qno],exam.pager.currentPage)"  type="radio" name="{{question.qno}}" ng-value='"{{option}}"' > {{option}}</label>
+                                <label><input ng-model="exam.answers[question.qno]" ng-change="exam.flagOptions(exam.answers[question.qno],exam.pager.currentPage)"  type="radio" name="{{question.qno}}" ng-value='"{{option}}"' > {{option}}</label>
                                 <!--  -->
                                 <!-- ng-click="exam.navigationDesign[exam.pager.currentPage]['text-decoration'] = exam.answers[question.qno] : 'underline' ? 'none'" -->
                             </div>
@@ -123,12 +123,12 @@
                     
                     
                     
-                    <div class="row m-t-20  p-t-5 p-r-5 p-b-5 p-l-5">
+                    <div class="row m-t-100  p-t-5 p-r-5 p-b-5 p-l-5">
                         
                         <div class="col"></div>
-                        <div class="col"></div>
+                        <div class="col"><button type="submit" class="btn btn-danger btn-sm b-w-100p"> <strong> Submit Test</strong></button></div>
                         <div class="col">
-                            <button type="submit" class="btn btn-primary btn-sm b-w-100p"> <strong> Submit Test</strong></button>
+                            
                         </div>
                     </div>
                     

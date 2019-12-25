@@ -22,9 +22,10 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
         "border-width" : "thick",
         "border-color" : "",
         "text-decoration" : "",
-        "font-weight" : ""
+        "font-weight" : "",
+        "color" : ""
     }];
-
+    
     exam.redBorder ={
         "border-color" : "red",
         "border-width" : "thick"
@@ -104,16 +105,18 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
                     exam.setPage = setPage;
                     
                     for(let i = 0; i<exam.qplen; i++){
-                        exam.flagsArray[i+1] = false;    
+                        exam.flagsArray[i+1] = false;   
+                        exam.answers[i+1] = null; 
                         exam.navigationDesign.push({
                             "border-width" : "thick",
                             "border-color" : "",
                             "text-decoration" : "",
-                            "font-weight" : ""
+                            "font-weight" : "",
+                            "color" : ""
                         });
                     }
-
-                   
+                    
+                    
                     
                     
                     //START------Pagination for displaying 1 question at a time
@@ -166,8 +169,14 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
                     run_clock('clockdiv',deadline);
                     //stop timer  
                 }else {
-                    alert(result.error);
-                    exam.loading = false;
+                    if(result.error=='gate_close_error'){
+                        exam.loading = false;
+                        alert('Please wait for the test to begin.\nConsult the faculty');
+                    }else if(result.error=='test_repeat_error'){
+                        exam.loading = false;
+                        alert('You have already given the Test');
+                    }                   
+                    
                     
                 }//if else ends here
             });            
@@ -197,14 +206,18 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
     }
     //method to make the font BOLD if the question is answered.
     function flagOptions(option, index){
-        exam.arr[index] = option;
-        exam.navigationDesign[index]["text-decoration"] = exam.arr[index] !=null ? "underline" : "none";
-        exam.navigationDesign[index]["font-weight"] = exam.arr[index] !=null ? "bold" : "normal";
+        
+        
+            exam.arr[index] = option;
+            exam.navigationDesign[index]["text-decoration"] = exam.arr[index] ==null ? "none" : "underline";
+            exam.navigationDesign[index]["font-weight"] = exam.arr[index] ==null ? "normal" :"bold" ;
+            exam.navigationDesign[index]["color"] = exam.arr[index] !=null ? "black" :  "black" ;
+        
     }
     function resetAnswer(index1, index2){
         exam.answers[index1] = null;
         exam.arr[index2] = null;    
-
+        
         exam.flagOptions(exam.answers[index1], index2);
     }
     

@@ -1,6 +1,20 @@
 
 <div class="limiter">
+
+		<div id="myNav" class="overlay">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<div class="overlay-content">
+				<strong>  Designed and developed by Aniketh and Tejas, Department of Information Science and Engineering.</strong>
+				</div>
+			  </div>
+			  <div class="about-us-div p-r-10 ">
+			  <span style="font-size:30px;cursor:pointer; float:right;" onclick="openNav()"><img src="images/about-us.png" class="img-thumbnail img-size" alt="git-banner">  </span>
+			</div>
+
+
+
 	<div class="container-login100">
+			
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-25 p-b-50">
 			<form name="form" class="login100-form validate-form needs-validation" ng-submit="form.$valid && lg.login()" novalidate>
 				<img src="images/gitbanner.png" class="img-thumbnail" alt="git-banner">
@@ -8,7 +22,7 @@
 					Student Login
 				</span>
 				
-				<div class="wrap-input100 validate-input" ng-class="{ 'has-error': form.$submitted && form.email.$invalid }" data-validate = "Valid email is required: ex@abc.xyz">
+				<div class="wrap-input100 validate-input m-t-15" ng-class="{ 'has-error': form.$submitted && form.email.$invalid }" data-validate = "Valid email is required: ex@abc.xyz">
 					
 					<input type="email" name="email" class="input100" placeholder="Email"  autocomplete="username" ng-model="lg.email" required />
 					<span ng-messages="form.$submitted && form.email.$error" style="font-size : x-small;padding-left: 40%;" class="focus-input100-2 text-danger focus-input100-1">

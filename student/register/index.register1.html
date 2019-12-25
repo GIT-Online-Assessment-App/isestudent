@@ -10,7 +10,7 @@
 					Student Registration
 				</span>
 				
-				<div class="wrap-input100 validate-input" ng-class="{ 'has-error': form.$submitted && form.username.$invalid }" data-validate = "Valid username is required: ex@abc.xyz">
+				<div class="wrap-input100 validate-input m-t-15" ng-class="{ 'has-error': form.$submitted && form.username.$invalid }" data-validate = "Valid username is required: ex@abc.xyz">
 					
 					<input type="text" name="username" class="input100" placeholder="First and Last Name"  autocomplete="username" ng-model="rg.username" required />
 					<span ng-messages="form.$submitted && form.username.$error"  class="focus-input100-1">
@@ -56,8 +56,21 @@
 				
 				
 				<div class="container-login100-form-btn m-t-20">
-					<button class="login100-form-btn" type="submit"  ng-disabled="rg.password != rg.password1">
+					<button class="login100-form-btn" type="submit"  ng-disabled="rg.loading">
 						Sign up
+						<img ng-if="rg.loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAA
+						MLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWphe
+						GxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUm
+						cG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu
+						7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAE
+						AAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfv
+						wQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DY
+						lJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgX
+						GJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQO
+						RfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAA
+						AAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLW
+						zpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjC
+						YRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
 					</button>
 				</div>
 				
@@ -73,7 +86,10 @@
 					</a>
 				</div>
 			</form>
+			
+			
 		</div>
 	</div>
 </div>
+
 

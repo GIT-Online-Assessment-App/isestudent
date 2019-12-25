@@ -17,7 +17,7 @@ function Controller($location, AuthenticationService){
         console.log(result.details);      
         
         //$location.path('dashboard/');
-        alert('Welcome '+result.username+'!'+' Token: '+ result.token);
+        alert('Welcome '+result.username+'!');
         console.log(result);
         window.location.href = '#!home';
 

@@ -11,9 +11,28 @@
     </nav>
     <div class="container-dashboard100 m-t-10">
         
-        <div class="wrap-dashboard100 p-l-55 p-r-55 p-t-65 p-b-50 m-b-10"  >
+        <div class="wrap-dashboard100 p-l-55 p-r-55 p-t-65 p-b-50 m-b-10"   >
+            <div class="errMsgLoading" ng-show="!dsh.success">
+                    <img  src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAA
+                    MLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWphe
+                    GxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUm
+                    cG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu
+                    7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAE
+                    AAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfv
+                    wQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DY
+                    lJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgX
+                    GJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQO
+                    RfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAA
+                    AAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLW
+                    zpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjC
+                    YRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                loading please wait...
+            </div>
             
-            <div ng-show="true">
+            <div  ng-hide="!dsh.success">
+                <div class="errMsg" ng-if="dsh.errMsg">
+                        {{dsh.errMsg}}
+                </div>
                 
                 
                 <div class="table-responsive">
@@ -23,14 +42,14 @@
                             <th>Test Series</th>
                             <th>Topic</th>
                             
-                            <th>Semester</th>
+                            
                             <th>Score</th>
                         </tr>
                         <tr ng-repeat="q_paper in dsh.response_list | orderBy : q_paper.semester" data-toggle="modal" data-target="#myModal" ng-click="dsh.dispQuestions(q_paper)">
                             <td></td>
                             <td>{{q_paper.ia}} </td>
                             <td>{{q_paper.subject}}</td>                            
-                            <td>{{q_paper.semester}} </td>
+                            
                             <td>{{q_paper.score}} </td>
                         </tr>
                     </table>
@@ -51,17 +70,19 @@
                                 <div class="modal-body wrap-dashboard100">
                                     <div class="table-responsive ">
                                         <table class="table wrap-response-header100">
-                                            <tr>
-                                                <td>Username: {{dsh.uname}} </td>
-                                                <td>Topic: {{dsh.subject}}</td>
-                                                <td>Semester: {{dsh.semester}} </td>
+                                            <tr>                                                
+                                                <td>Topic: {{dsh.subject}}</td>                                                
                                                 <td>Test Series: {{dsh.ia}}</td>
                                                 <td>Score: {{dsh.score}} </td>
                                             </tr>
                                         </table>
-                                        
-                                        <div class="wrap-responses100 m-t-5 p-l-10 p-t-10 p-r-10 p-b-10" ng-repeat="question in dsh.responses.questions" ng-style='dsh.responses.student_response[$index].status=="correct" ? dsh.correct :  dsh.responses.student_response[$index].status=="wrong" ? dsh.wrong : dsh.na'>
-                                            <div >
+                                       <div class="errMsg" ng-show="dsh.gate=='__open__'">
+                                            Please wait for the test to end.<br/>
+                                            Consult the concerned Faculty and try again refreshing the page.                                            
+                                       </div>
+                                        <div class="wrap-responses100 m-t-5 p-l-10 p-t-10 p-r-10 p-b-10"ng-hide="dsh.gate=='__open__'" ng-repeat="question in dsh.responses.questions" ng-style='dsh.responses.student_response[$index].status=="correct" ? dsh.correct :  dsh.responses.student_response[$index].status=="wrong" ? dsh.wrong : dsh.na'>
+                                            
+                                            <div ng-show="1">
                                                 <span>{{question.qno}}. </span>
                                                 <span><strong>{{question.question}} </strong></span>
                                                 <div class="row m-t-15 m-l-10" >

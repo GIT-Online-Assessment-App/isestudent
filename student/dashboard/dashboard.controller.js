@@ -27,14 +27,20 @@ function Controller($localStorage,QuestionPaperService, AuthenticationService) {
             QuestionPaperService.prevResponses(dsh.email, function(result){
                 
                 if(result.status=='success'){
+                    dsh.success = true;
                     console.table(result.response_list);
                     dsh.response_list = result.response_list;
                     dsh.no_tests = result.response_list.length
                     console.log(dsh.response_list.subject);
                     
                     
-                }else {
+                }else if(result.status == 'failed'){
+                    if(result.error=='NO_RESPONSES'){
+                    dsh.success = true;
                     dsh.errMsg = "Not Responded to any test Yet";
+                    
+                    console.log(result);
+                    }
                 }
                 
                 
@@ -55,6 +61,7 @@ function Controller($localStorage,QuestionPaperService, AuthenticationService) {
         dsh.ia = q_paper.ia;
         dsh.score = q_paper.score;
         dsh.semester = q_paper.semester;
+        dsh.gate = q_paper.gate;
         
         dsh.responses = q_paper;
         dsh.options = q_paper.options;
