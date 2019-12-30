@@ -111,8 +111,8 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
                             "border-width" : "thick",
                             "border-color" : "",
                             "text-decoration" : "",
-                            "font-weight" : "",
-                            "color" : ""
+                            "font-weight" : "bold",
+                            "color" : "black"
                         });
                     }
                     
@@ -210,8 +210,8 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
         
             exam.arr[index] = option;
             exam.navigationDesign[index]["text-decoration"] = exam.arr[index] ==null ? "none" : "underline";
-            exam.navigationDesign[index]["font-weight"] = exam.arr[index] ==null ? "normal" :"bold" ;
-            exam.navigationDesign[index]["color"] = exam.arr[index] !=null ? "black" :  "black" ;
+            exam.navigationDesign[index]["font-weight"] = exam.arr[index] ==null ? "bold" :"bold" ;
+            exam.navigationDesign[index]["color"] = exam.arr[index] !=null ? "grey" :  "black" ;
         
     }
     function resetAnswer(index1, index2){

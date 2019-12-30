@@ -23,7 +23,7 @@ function Controller($location, AuthenticationService){
 
       }else if(result.status =='failed'){          
           lg.loading = false;
-          
+          alert(result.error);
           lg.aa = result;
       }else if(result.details == ''){        
         window.location.href = '#!register2';
