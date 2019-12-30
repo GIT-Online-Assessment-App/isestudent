@@ -12,18 +12,18 @@ function Controller($location, AuthenticationService){
   function login(){
     lg.loading = true;
     AuthenticationService.Login(lg.email, lg.password, function(result){
-      console.log(result);
+      
       if(result.status == 'success' && result.details != ''){
-        console.log(result.details);      
+              
         
         //$location.path('dashboard/');
         alert('Welcome '+result.username+'!');
-        console.log(result);
+        
         window.location.href = '#!home';
 
       }else if(result.status =='failed'){          
           lg.loading = false;
-          alert(result.error);
+          
           lg.aa = result;
       }else if(result.details == ''){        
         window.location.href = '#!register2';

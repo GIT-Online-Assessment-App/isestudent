@@ -39,7 +39,7 @@ function run($rootScope, $http, $location, $localStorage) {
         $rootScope.URLs = {
           //"ip": "http://10.13.3.242"
           //"ip": "http://10.10.2.219"
-          "ip" : "http://10.10.3.160"
+          "ip" : "http://192.168.43.206"
         }
 
 
@@ -65,7 +65,7 @@ function run($rootScope, $http, $location, $localStorage) {
 
         
         //code to disable INSPECT ELEMENT
-       /*  $(document).keydown(function(e){
+         $(document).keydown(function(e){
           if(e.which === 123){
              return false;
           }
@@ -84,6 +84,6 @@ function run($rootScope, $http, $location, $localStorage) {
             
             return false;
         }
-      });  */
+      });  
       
     };

@@ -74,7 +74,7 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
                     //detecting change of tab...
                     window.addEventListener("visibilitychange", function() {
                         if (document.hidden && !exam.logout_flag){
-                            console.log("Browser tab is hidden")
+                            
                             exam.tabChangeCount = exam.tabChangeCount + 1;
                             alert('Quiz will be Auto submitted on next tab Change!');
                             if(exam.tabChangeCount > 1){                               
@@ -82,7 +82,7 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
                                 exam.submit();
                             }
                         } else {
-                            console.log("Browser tab is visible")
+                            //
                         }
                     });                       
                     //preventing tab/window close
@@ -226,7 +226,7 @@ function Controller($localStorage,QuestionPaperService,PagerService, Authenticat
     function submit(){
         
         
-        console.log('question len: '+ exam.questions.length);
+        
         
         exam.aa = [];
         exam.qplen = exam.questions.length;
